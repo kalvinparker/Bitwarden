@@ -1,4 +1,4 @@
-https://i12bretro.github.io/tutorials/0845.html
+Credit to: https://i12bretro.github.io/tutorials/0845.html
 
 ## Self-Hosting Bitwarden Password Vault with Docker
 
@@ -10,14 +10,32 @@ Bitwarden is a free/freemium open-source password management service that stores
 
 1. **Log in** to your Linux-based device.
 2. Run the following commands in the terminal:
-
+   - install prerequisites
    ```bash
    sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent -y
+   ```
+   - add docker gpg key
+   ```bash
    curl -fsSL https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release)/gpg | sudo apt-key add -
+   ```
+   - add docker software repository
+   ```bash
    sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/$(awk -F'=' '/^ID=/{ print $NF }' /etc/os-release) $(lsb_release -cs) stable"
+   ```
+   - install docker
+   ```bash
    sudo apt install docker-ce docker-compose containerd.io -y
+   ```
+   - enable and start docker service
+   ```bash
    sudo systemctl enable docker && sudo systemctl start docker
+   ```
+   - add the current user to the docker group
+   ```bash
    sudo usermod -aG docker $USER
+   ```
+   - reauthenticate for the new group membership to take effect
+   ```bash
    su - $USER
    ```
 
