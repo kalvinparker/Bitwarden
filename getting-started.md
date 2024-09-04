@@ -135,3 +135,7 @@ Bitwarden is a free/freemium open-source password management service that stores
 5. Log in to Bitwarden using the email address and password you set earlier.
 
 Congratulations! You've successfully self-hosted Bitwarden and can now manage your passwords securely.
+
+Documentation: https://bitwarden.com/help/install-on-premise-linux/#post-install-configuration
+
+Source: https://bitwarden.com/help/install-on-premise-linux/
