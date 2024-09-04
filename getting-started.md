@@ -47,17 +47,44 @@ Bitwarden is a free/freemium open-source password management service that stores
 2. Enter an email address and click "Submit."
 3. Copy the Installation ID and Key for later use.
 4. Continue with the following commands in a terminal window:
-
+   - create a working directory
    ```bash
    mkdir ~/docker/bitwarden -p
+   ```
+   - create a bitwarden user account
+   ```bash
    sudo adduser bitwarden --disabled-password
+   ```
+   - add the bitwarden user to the docker group
+   ```bash
    sudo usermod -aG docker bitwarden
+   ```
+   - create bitwarden install directory
+   ```bash
    sudo mkdir /opt/bitwarden
+   ```
+   - set permission on the install directory
+   ```bash
    sudo chmod -R 700 /opt/bitwarden
+   ```
+   - set ownership of install directory to bitwarden
+   ```bash
    sudo chown -R bitwarden:bitwarden /opt/bitwarden
+   ```
+   - cd into the working directory
+   ```bash
    cd ~/docker/bitwarden
+   ```
+   - download the bitwarden installation script
+   ```bash
    curl -Lso bitwarden.sh https://go.btwrdn.co/bw-sh
+   ```
+   - make the install script executable
+   ```bash
    chmod 700 bitwarden.sh
+   ```
+   - execute the installation scripts
+   ```bash
    ./bitwarden.sh install
    ```
 
